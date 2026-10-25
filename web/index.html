@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; media-src blob:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0e2a47">
+<title>Looplet</title>
+<meta name="description" content="Make a short looping GIF from your camera or a video file. It all happens in your browser; nothing is uploaded.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9h8a4 4 0 0 1 0 8H10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M10 5L6 9l4 4" fill="none" stroke="var(--hot)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Looplet</span></div>
+  <p class="privacy">Your video never leaves this page.</p>
+</header>
+
+<main id="main">
+  <h1>Six seconds, on repeat.</h1>
+  <p class="lede">Record with your camera or pick a video. Trim, speed it up, make it bounce back and forth, and save a GIF.</p>
+
+  <section class="stage-wrap" aria-label="Preview">
+    <div class="stage" id="stage">
+      <canvas id="view" width="480" height="360" aria-label="Preview of your loop"></canvas>
+      <p id="overlay" class="overlay" aria-live="assertive"></p>
+      <p id="placeholder" class="placeholder">Nothing yet. Record or choose a video.</p>
+    </div>
+    <div class="transport" id="transport" hidden>
+      <button id="playpause" class="ghost" type="button" aria-pressed="false">Pause</button>
+      <span id="meta" class="muted small"></span>
+    </div>
+  </section>
+
+  <section class="sources" aria-label="Start">
+    <button id="rec" type="button" class="hot">Record with camera</button>
+    <button id="stop" type="button" class="hot" hidden>Stop</button>
+    <label class="btn" for="file">Choose a video<input id="file" type="file" accept="video/*"></label>
+  </section>
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+
+  <section id="controls" class="controls" hidden aria-label="Adjust">
+    <div id="start-row" class="field" hidden>
+      <label for="start">Start at <output id="start-out">0.0 s</output></label>
+      <input id="start" type="range" min="0" max="0" step="0.1" value="0">
+    </div>
+    <div class="field">
+      <label for="speed">Speed</label>
+      <select id="speed"><option value="0.5">Half</option><option value="1" selected>Normal</option><option value="1.5">1.5x</option><option value="2">Double</option></select>
+    </div>
+    <div class="field">
+      <label for="mode">Playback</label>
+      <select id="mode"><option value="forward">Loop</option><option value="pingpong">Boomerang (forward, then back)</option></select>
+    </div>
+    <div class="field">
+      <label for="size">Size</label>
+      <select id="size"><option value="240">Small (240 px)</option><option value="360" selected>Medium (360 px)</option><option value="480">Large (480 px)</option></select>
+    </div>
+    <button id="make" type="button" class="hot wide">Make GIF</button>
+  </section>
+
+  <section id="result" class="result" hidden aria-label="Your GIF">
+    <h2>Your GIF</h2>
+    <img id="gif" alt="The GIF you just made, looping">
+    <p id="gif-info" class="muted"></p>
+    <div class="row"><button id="save" type="button" class="hot">Download GIF</button></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Looplet is a free rebuild of the idea behind Vine, the six-second looping video app Twitter closed in January 2017. It makes GIFs, not videos, so there is no sound, and it has no feed or sharing site: you save the file and share it yourself.</p>
+</footer>
+<script src="app.js" type="module"></script>
+</body>
+</html>

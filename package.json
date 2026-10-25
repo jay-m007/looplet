@@ -1,0 +1,12 @@
+{
+  "name": "looplet",
+  "version": "1.0.0",
+  "description": "Turn a short video or a camera clip into a looping GIF. Everything happens in your browser; nothing is uploaded.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "build": "node tools/build.js",
+    "serve": "node tools/build.js && node tools/serve.js"
+  },
+  "license": "MIT"
+}
