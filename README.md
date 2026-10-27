@@ -4,7 +4,7 @@ Turn a short video, or a clip from your camera, into a looping GIF. Pick which s
 
 A student rebuild of the idea behind **Vine**, the six-second looping video app that Twitter closed in January 2017. Vine was a camera, a loop and a feed. Looplet keeps the camera and the loop and drops the feed, because a feed needs a server, moderation and money. You save the GIF and share it wherever you like.
 
-**Live demo:** https://jay-m007.github.io/looplet/ (once published)
+**Live demo:** https://jay-m007.github.io/looplet/
 
 ![Making a GIF on a phone](docs/phone.png)
 
